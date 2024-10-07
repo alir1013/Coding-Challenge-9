@@ -1,4 +1,4 @@
-//Task 1: Creating a Book Class
+//Task 1:Creating a Book Class
 class Book {
     constructor(title,author,ISBN){ //Constructor initilizes the object when a new instance is created
     this.title = title;
@@ -26,7 +26,7 @@ class Book {
     }}}
 
 
-    //Creating a Section Class
+    //Task 2:Creating a Section Class
     class Section {
     constructor(name){
         this.name = name;
@@ -46,3 +46,21 @@ class Book {
         });
     } }
 
+//Task 3:Creating a Patron Class
+
+class Patron {
+    constructor(name){
+        this.name = name;
+        this.borrowedBooks = [];
+    }
+    borrowBook(book){  //Allows the patron to borrow a book if it is available and updates the book’s status
+        if (book.isAvailable){
+            this.borrowedBooks.push(book);
+            book.isAvailable = false;
+        } }
+    returnBook(book){  //Allows the patron to return a borrowed book, making it available again
+        const bookIsFound= this.borrowedBooks.find(borrowedBook => borrowedBook === book);
+        if (bookIsFound){
+            this.borrowedBooks = this.borrowedBooks.filter(borrowedBook => borrowedBook !== book);
+            book.isAvailable = true;
+        }}}

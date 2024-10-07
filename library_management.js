@@ -45,6 +45,12 @@ class Book {
             console.log(`${book.title}: ${book.isAvailable ? "Available" : "Borrowed"}`); //Lists all books in the section, showing their title and availability
         });
     } }
+   //Task 5:calculates the total number of books that are available for borrowing in the section
+    calculateTotalBooksAvailable(){
+        return this.books.reduce((total,book) => {
+            return total + (book.isAvailable ? 1:0);
+        },0);
+    }
 
 //Task 3:Creating a Patron Class
 
@@ -82,3 +88,7 @@ class VIPPatron extends Patron{  //VIPPatron class inherits from the patron clas
             console.log(`${this.name} is a VIP Patron with priority: ${this.priority}.`);  
         }
 }
+
+//Task 5: Handle Book Borrowing and Returning
+//added this to task 2: calculateTotalBooksAvailable(){return this.books.reduce((total,book) => { return total + (book.isAvailable ? 1:0);  },0);
+

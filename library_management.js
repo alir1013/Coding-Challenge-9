@@ -1,18 +1,18 @@
 //Task 1: Creating a Book Class
 class Book {
-    constructor(title,author,ISBN){
+    constructor(title,author,ISBN){ //Constructor initilizes the object when a new instance is created
     this.title = title;
     this.author = author;
     this.ISBN = ISBN;
     this._isAvailable = true;
     }
-    getDetails(){
+    getDetails(){  //returns a string with the book title, author, and ISBN
         return `Title:${this.title} Author: ${this.author} ISBN: ${this.ISBN}`;
     }
-    get isAvailable(){
+    get isAvailable(){  // Getter returns a formated string 
         return this._isAvailable;
     }
-    set isAvailable(status) {
+    set isAvailable(status) {  //Setter returns updated status
         if (status === true){
             this._isAvailable = true;
         console.log(`${this.title} is available`);
@@ -24,4 +24,5 @@ class Book {
          console.log("Not Found")
 
     }}}
+
 

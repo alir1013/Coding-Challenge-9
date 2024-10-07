@@ -26,3 +26,22 @@ class Book {
     }}}
 
 
+    //Creating a Section Class
+    class Section {
+    constructor(name){
+        this.name = name;
+        this.books = [];
+    }
+    addBook(book){
+        this.books.push(book);
+    }
+    getAvailableBooks(){
+        return this.books.reduce((total,book) => {
+            return total + (book.isAvailable ? 1: 0);
+        },0);
+    }
+    listBooks(){
+        this.books.forEach(book =>{
+            console.log(`${book.title}: ${book.isAvailable ? "Available" : "Borrowed"}`);
+        });
+    } }

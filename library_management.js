@@ -32,16 +32,17 @@ class Book {
         this.name = name;
         this.books = [];
     }
-    addBook(book){
+    addBook(book){   //Adds a book to the book array
         this.books.push(book);
     }
     getAvailableBooks(){
         return this.books.reduce((total,book) => {
-            return total + (book.isAvailable ? 1: 0);
+            return total + (book.isAvailable ? 1: 0); //Returns the total number of available books in the section
         },0);
     }
     listBooks(){
         this.books.forEach(book =>{
-            console.log(`${book.title}: ${book.isAvailable ? "Available" : "Borrowed"}`);
+            console.log(`${book.title}: ${book.isAvailable ? "Available" : "Borrowed"}`); //Lists all books in the section, showing their title and availability
         });
     } }
+

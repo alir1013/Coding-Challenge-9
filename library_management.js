@@ -92,3 +92,57 @@ class VIPPatron extends Patron{  //VIPPatron class inherits from the patron clas
 //Task 5: Handle Book Borrowing and Returning
 //added this to task 2: calculateTotalBooksAvailable(){return this.books.reduce((total,book) => { return total + (book.isAvailable ? 1:0);  },0);
 
+//Task 6:Create and Manage Sections and Patrons
+
+// Create sections
+
+const fiction = new Section("Fiction");
+
+const science = new Section("Science");
+
+// Create books
+
+const book1 = new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "1234567890");
+
+const book2 = new Book("To Kill a Mockingbird", "Harper Lee", "0987654321");
+
+const book3 = new Book("The Elegant Universe", "Brian Greene", "1122334455");
+
+
+
+// Add books to sections
+
+fiction.addBook(book1);
+
+fiction.addBook(book2);
+
+science.addBook(book3);
+
+// Create patrons
+
+const regularPatron = new Patron("Apple Jane");
+
+const vipPatron = new VIPPatron("George Washington", true);
+
+// Regular patron tries to borrow a book
+
+regularPatron.borrowBook(book1);
+
+// VIP patron tries to borrow a book (has priority)
+
+vipPatron.borrowBook(book1);
+
+// Return the book
+regularPatron.returnBook(book1);
+
+
+
+// List books and availability
+
+fiction.listBooks();
+
+// Calculate total available books in each section
+
+console.log(`Total available books in Fiction: ${fiction.getAvailableBooks()}`);
+
+console.log(`Total available books in Science: ${science.getAvailableBooks()}`);
